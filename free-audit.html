@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — Brainy Brands</title>
-<meta name="description" content="Send a question to Brainy Brands. Response within 24 hours.">
+<title>Get a Free Audit — Brainy Brands</title>
+<meta name="description" content="Twenty minutes, live, on your real Amazon ad account. Book your free audit with Dale directly below.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/dark-theme.css?v=12">
@@ -42,7 +42,7 @@
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="book.html">Book a Call</a></li>
     </ul>
-    <a class="dt-cta dt-cta--ghost" href="free-audit.html">Get a free audit</a>
+    <a class="dt-cta dt-cta--ghost" href="free-audit.html" aria-current="page">Get a free audit</a>
   </div>
 </header>
 
@@ -50,97 +50,39 @@
 
   <section class="dt-page-hero">
     <div class="dt-shell dt-shell--tight">
-      <h1 class="rv"><span class="hl">Ask a question</span></h1>
+      <h1 class="rv">Get your free <span class="hl">Amazon ad audit</span></h1>
       <p class="dt-lede mt-4 rv" style="transition-delay:80ms">
-        If you'd rather not book a call yet, this goes straight to Dale. You'll
-        hear back within 24 hours.
+        Twenty minutes, live, inside your real account. Dale shows you what's
+        costing you money and what he'd change. Pick a time below.
       </p>
     </div>
   </section>
 
   <section class="dt-section">
     <div class="dt-shell dt-shell--tight">
-      <div class="dt-prose rv">
-        <p>
-          We aren't a large agency with a big workforce, and we don't shuffle
-          brand managers around. We're selective about who we work with, because
-          we'd rather do a small number of accounts properly.
-        </p>
-        <p>
-          Fill this in and we'll review it &mdash; including checking there's no
-          conflict with an existing client &mdash; and get back to you if we think
-          we can add real value to your business.
-        </p>
+
+      <div class="dt-glass dt-panel rv">
+        <p><strong>25% ad spend reduction in 30 days, scaling toward 50% by day
+          60&ndash;90 &mdash; or you don't pay.</strong></p>
+        <p class="mt-3">Available to accounts spending $10K+/month on Amazon ads, after this
+          audit. If we miss it, you get your money back or we keep working free
+          until we hit it.</p>
       </div>
 
-      <!-- ===================================================================
-           EMANUEL: point action= at the GHL contact-form endpoint.
-           Tag submissions `contact-form`. Do NOT fire a Meta Lead event here —
-           this isn't a funnel step and it'll pollute the pixel.
+      <h2 class="dt-h2 mt-5 rv">What you get on the call</h2>
+      <div class="dt-prose mt-3 rv">
+        <ul>
+          <li>A read on your bid settings &mdash; dynamic bidding and placement
+            multipliers, and what they're costing you right now</li>
+          <li>Where spend is going that isn't producing sales</li>
+          <li>Whether your campaign structure still fits your current revenue</li>
+          <li>A straight answer on whether your account qualifies for the guarantee</li>
+        </ul>
+      </div>
 
-           Field set matches the old WordPress form (Full Name, Email, Amazon
-           Storefront link, Monthly AD spend Budget, Annual Revenue, Message)
-           so nothing Dale relied on for qualification is lost.
-           ================================================================ -->
-      <form class="mt-5 gate rv" style="transition-delay:80ms" action="#" method="post" novalidate>
+      <h2 class="dt-h2 mt-5 rv">Pick a time</h2>
+      <iframe class="dt-ghl-embed mt-3 rv" style="transition-delay:60ms" src="https://api.leadconnectorhq.com/widget/booking/iRg9b4I5hdMt3MW7AQg4" allow="payment" scrolling="no" id="iRg9b4I5hdMt3MW7AQg4_1788469702921"></iframe>
 
-        <div class="dt-field">
-          <label for="name">Full name</label>
-          <input type="text" id="name" name="name" autocomplete="name" required>
-        </div>
-
-        <div class="dt-field">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" autocomplete="email" required>
-        </div>
-
-        <div class="dt-field">
-          <label for="storefront">Amazon storefront link <span class="dt-xs dt-muted">(optional)</span></label>
-          <input type="url" id="storefront" name="storefront" placeholder="https://">
-          <p class="dt-field-hint">Lets us look at the account before we reply.</p>
-        </div>
-
-        <div class="dt-field">
-          <label for="ad_spend">Monthly ad spend budget <span class="dt-xs dt-muted">(optional)</span></label>
-          <select id="ad_spend" name="ad_spend">
-            <option value="">Choose one</option>
-            <option value="under-5k">Under $5,000/month</option>
-            <option value="5k-10k">$5,000 &ndash; $10,000/month</option>
-            <option value="10k-25k">$10,000 &ndash; $25,000/month</option>
-            <option value="25k-50k">$25,000 &ndash; $50,000/month</option>
-            <option value="50k-plus">$50,000+/month</option>
-          </select>
-        </div>
-
-        <div class="dt-field">
-          <label for="annual_revenue">Annual revenue <span class="dt-xs dt-muted">(optional)</span></label>
-          <select id="annual_revenue" name="annual_revenue">
-            <option value="">Choose one</option>
-            <option value="under-500k">Under $500,000</option>
-            <option value="500k-1m">$500,000 &ndash; $1M</option>
-            <option value="1m-5m">$1M &ndash; $5M</option>
-            <option value="5m-plus">$5M+</option>
-          </select>
-        </div>
-
-        <div class="dt-field">
-          <label for="message">Your message</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
-          <p class="dt-field-hint">The more specific, the more useful the answer.</p>
-        </div>
-
-        <button class="dt-btn dt-btn--primary mt-3" type="submit">Send it</button>
-      </form>
-
-      <p class="dt-sm dt-muted mt-5">
-        Ready to talk instead? <a class="dt-inline-link" href="free-audit.html">Get a free audit &rarr;</a>
-      </p>
-
-      <h2 class="dt-h2 mt-5">Head office</h2>
-      <address class="dt-prose" style="font-style:normal;">
-        1007 N Orange St. 4th Floor<br>
-        Wilmington, Delaware 19801
-      </address>
     </div>
   </section>
 
@@ -175,6 +117,7 @@
 </footer>
 
 <script src="js/nav.js?v=2" defer></script>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <script>
 (function () {
   'use strict';
