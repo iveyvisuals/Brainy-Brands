@@ -7,7 +7,7 @@
 <meta name="description" content="Manual, top-down bid management for Amazon sellers spending $10K+/month on ads. One account manager. 24-hour response. Flat fee, never a percentage of your ad spend.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/dark-theme.css?v=11">
+<link rel="stylesheet" href="css/dark-theme.css?v=12">
 </head>
 <body class="dt">
 
@@ -451,6 +451,7 @@
 
   function animateCount(el) {
     var to = parseInt(el.getAttribute('data-count-to'), 10);
+    el.style.minWidth = String(to).length + 'ch';
     if (reduced || !('requestAnimationFrame' in window)) { el.textContent = to; return; }
     var duration = 1400;
     var start = null;

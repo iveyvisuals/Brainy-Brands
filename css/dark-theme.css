@@ -233,6 +233,11 @@
 .dt-case-logo { grid-row: 1; grid-column: 2; justify-self: end; display: inline-flex; align-items: center; }
 .dt-case-logo img { display: block; height: 38px; width: auto; max-width: 300px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9; }
 
+/* Reserved to its final width by JS before the count-up animation starts
+   (see animateCount), so the digit count changing mid-count (e.g. "5" to
+   "450") can't shift line-wraps and resize the card around it. */
+.count-up { display: inline-block; font-variant-numeric: tabular-nums; }
+
 /* --- Guarantee ------------------------------------------------------------- */
 .dt-guarantee { text-align: center; padding: clamp(2.5rem, 2rem + 2vw, 4rem) clamp(1.5rem, 1rem + 2vw, 3rem); }
 .dt-guarantee-statement { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.6rem, 1.2rem + 2vw, 2.5rem); line-height: 1.15; max-width: 34ch; margin-inline: auto; }

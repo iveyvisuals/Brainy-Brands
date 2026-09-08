@@ -7,7 +7,7 @@
 <meta name="description" content="A+ content, 3D product rendering, and real PPC performance screenshots from accounts we've managed. Plus our Amazon advertising certifications.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/dark-theme.css?v=11">
+<link rel="stylesheet" href="css/dark-theme.css?v=12">
 </head>
 <body class="dt">
 
@@ -296,6 +296,7 @@
 
   function animateCount(el) {
     var to = parseInt(el.getAttribute('data-count-to'), 10);
+    el.style.minWidth = formatNumber(to).length + 'ch';
     if (reduced || !('requestAnimationFrame' in window)) { el.textContent = formatNumber(to); return; }
     var duration = 1400;
     var start = null;
