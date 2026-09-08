@@ -71,14 +71,14 @@
 
            EMANUEL — READ THIS:
            The JS below is a UX convenience only. It is NOT security. Anyone can
-           open devtools and land on book.html directly. You must re-run the
-           same rule server-side in GHL before the calendar invite goes out.
+           open devtools and land on free-audit.html directly. You must re-run
+           the same rule server-side in GHL before the calendar invite goes out.
 
            PASS  = ad_spend is 10k-25k, 25k-50k, or 50k-plus
            FAIL  = ad_spend is under-5k or 5k-10k
 
            On PASS: tag `audit-qualified`, stage `Audit Booked — Pending`,
-                    fire Meta SubmitApplication, redirect book.html
+                    fire Meta SubmitApplication, redirect free-audit.html
            On FAIL: tag `below-floor`, add to GUIDE nurture (not audit nurture),
                     fire NO Meta event, redirect not-a-fit.html
 
@@ -234,7 +234,7 @@
       fbq('track', 'SubmitApplication');
     }
 
-    window.location.href = qualified ? 'book.html' : 'not-a-fit.html';
+    window.location.href = qualified ? 'free-audit.html' : 'not-a-fit.html';
   });
 })();
 </script>
