@@ -70,7 +70,7 @@
         <div class="dt-glass dt-panel">
           <span class="dt-logo-chip"><img src="images/casestudylogos/logo-magic-brand.png" alt="Magic Brand logo" loading="lazy" style="height:60px;"></span>
           <h3>Magic Brand</h3>
-          <p class="dt-metric">$0 &rarr; $450K/month</p>
+          <p class="dt-metric">$0 &rarr; $<span class="count-up" data-count-to="450">0</span>K/month</p>
           <p class="dt-tag">In four months.</p>
           <p class="dt-prose mt-3">A cold launch. No sales history, no reviews, no ranking.
             Built from zero with manual bids from day one rather than letting
@@ -80,7 +80,7 @@
         <div class="dt-glass dt-panel">
           <span class="dt-logo-chip"><img src="images/casestudylogos/Midtown.svg" alt="Midtown Umbrellas logo" loading="lazy" style="height:28px;"></span>
           <h3>Midtown Umbrellas &mdash; Yoan</h3>
-          <p class="dt-metric">$6K &rarr; $300K/month</p>
+          <p class="dt-metric">$6K &rarr; $<span class="count-up" data-count-to="300">0</span>K/month</p>
           <p class="dt-tag">In three months.</p>
           <p class="dt-prose mt-3">A seasonal product with a narrow selling window. The
             account had volume potential it was never structured to capture.
@@ -90,7 +90,7 @@
         <div class="dt-glass dt-panel">
           <span class="dt-logo-chip"><img src="images/casestudylogos/logo-zestt-organics.png" alt="Zestt Organics logo" loading="lazy" style="height:46px;"></span>
           <h3>Zestt Organics</h3>
-          <p class="dt-metric">$50K &rarr; $110K/month</p>
+          <p class="dt-metric">$50K &rarr; $<span class="count-up" data-count-to="110">0</span>K/month</p>
           <p class="dt-tag">In two months &mdash; with a 40% cut in ad spend.</p>
           <p class="dt-prose mt-3">The clearest version of the argument. Revenue more than
             doubled while spend went down by nearly half. Nothing changed about
@@ -100,7 +100,7 @@
         <div class="dt-glass dt-panel">
           <span class="dt-logo-chip"><img src="images/casestudylogos/logo-temp-tooth.png" alt="Temp Tooth logo" loading="lazy" style="height:38px;"></span>
           <h3>Temp Tooth</h3>
-          <p class="dt-metric">70% less ad spend</p>
+          <p class="dt-metric"><span class="count-up" data-count-to="70">0</span>% less ad spend</p>
           <p class="dt-tag">Revenue went $90K &rarr; $120K/month at the same time.</p>
           <p class="dt-prose mt-3">This account was badly overpaying per click. Turning off
             dynamic bidding and multipliers took most of the waste out before any
@@ -110,7 +110,7 @@
         <div class="dt-glass dt-panel">
           <span class="dt-logo-chip"><img src="images/casestudylogos/logo-patriot-crew.png" alt="Patriot Crew logo" loading="lazy" style="height:46px;"></span>
           <h3>Patriot Crew</h3>
-          <p class="dt-metric">$174K &rarr; $388K/month</p>
+          <p class="dt-metric">$174K &rarr; $<span class="count-up" data-count-to="388">0</span>K/month</p>
           <p class="dt-prose mt-3">An already-healthy account that had plateaued. The
             ceiling wasn't demand, it was a campaign structure built for a much
             smaller catalog.</p>
@@ -119,7 +119,7 @@
         <div class="dt-glass dt-panel">
           <span class="dt-logo-chip"><img src="images/casestudylogos/logo-emerald-plastics.png" alt="Emerald Plastics logo" loading="lazy" style="height:58px;"></span>
           <h3>Emerald Plastics</h3>
-          <p class="dt-metric">$6,545/month by month two</p>
+          <p class="dt-metric">$<span class="count-up" data-count-to="6545">0</span>/month by month two</p>
           <p class="dt-tag">From a cold launch.</p>
           <p class="dt-prose mt-3">Units sold up 164%. Smaller numbers than the rest, and
             included on purpose &mdash; this is what an early-stage account
@@ -174,17 +174,44 @@
 <script>
 (function () {
   'use strict';
+
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function formatNumber(n) {
+    return n >= 1000 ? n.toLocaleString('en-US') : String(n);
+  }
+
+  function animateCount(el) {
+    var to = parseInt(el.getAttribute('data-count-to'), 10);
+    if (reduced || !('requestAnimationFrame' in window)) { el.textContent = formatNumber(to); return; }
+    var duration = 1400;
+    var start = null;
+    function step(ts) {
+      if (start === null) { start = ts; }
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = formatNumber(Math.round(eased * to));
+      if (progress < 1) { requestAnimationFrame(step); }
+      else { el.textContent = formatNumber(to); }
+    }
+    requestAnimationFrame(step);
+  }
+
   if (!reduced && 'IntersectionObserver' in window) {
     document.documentElement.setAttribute('data-reveal', '');
     var seen = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) { return; }
         entry.target.setAttribute('data-in', '');
+        var counters = entry.target.querySelectorAll('.count-up');
+        for (var i = 0; i < counters.length; i++) { animateCount(counters[i]); }
         obs.unobserve(entry.target);
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
     Array.prototype.forEach.call(document.querySelectorAll('.rv'), function (el) { seen.observe(el); });
+  } else {
+    var allCounters = document.querySelectorAll('.count-up');
+    for (var j = 0; j < allCounters.length; j++) { animateCount(allCounters[j]); }
   }
 })();
 </script>
