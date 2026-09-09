@@ -104,14 +104,17 @@
     }
     svg.appendChild(gridGroup);
 
-    // X-axis tick labels (sparse)
+    // X-axis tick labels (sparse), always including the last month
     var xTickGroup = el('g', { class: 'dt-ichart-xticks' });
     var everyN = cfg.xTickEvery || 12;
-    for (var i = 0; i < n; i += everyN) {
-      var lbl = el('text', { x: xAt(i), y: VB_H - 10, class: 'dt-ichart-xlabel', 'text-anchor': 'middle' });
-      lbl.textContent = cfg.xLabel(data[i].date);
+    var xTickIdxs = [];
+    for (var i = 0; i < n; i += everyN) { xTickIdxs.push(i); }
+    if (xTickIdxs[xTickIdxs.length - 1] !== n - 1) { xTickIdxs.push(n - 1); }
+    xTickIdxs.forEach(function (idx) {
+      var lbl = el('text', { x: xAt(idx), y: VB_H - 10, class: 'dt-ichart-xlabel', 'text-anchor': 'middle' });
+      lbl.textContent = cfg.xLabel(data[idx].date);
       xTickGroup.appendChild(lbl);
-    }
+    });
     svg.appendChild(xTickGroup);
 
     // Lines
