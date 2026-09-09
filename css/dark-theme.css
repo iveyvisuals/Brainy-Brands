@@ -455,7 +455,7 @@
 
 /* --- Interactive line chart -------------------------------------------------- */
 .dt-ichart-card { padding: 1.5rem 1.25rem 1.25rem; }
-.dt-ichart-stats { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.5rem 2rem; margin-bottom: 1.25rem; padding-left: 5%; }
+.dt-ichart-stats { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.5rem 2rem; margin-bottom: 1.25rem; }
 .dt-ichart-stat { display: flex; flex-direction: column; gap: 0.3rem; }
 .dt-ichart-stat-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--paper-mute); text-transform: uppercase; letter-spacing: 0.04em; }
 .dt-ichart-stat-swatch { width: 0.6rem; height: 0.6rem; border-radius: 999px; flex: none; }

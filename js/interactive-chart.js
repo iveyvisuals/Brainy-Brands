@@ -87,6 +87,7 @@
 
     // Grid lines + left/right axis labels
     var gridGroup = el('g', { class: 'dt-ichart-grid' });
+    var leftAxisLabelEls = [];
     var ticks = 4;
     for (var t = 0; t <= ticks; t++) {
       var val = (leftNice.max / ticks) * t;
@@ -95,6 +96,7 @@
       var leftLabel = el('text', { x: MARGIN.left - 10, y: y + 4, class: 'dt-ichart-axislabel', 'text-anchor': 'end' });
       leftLabel.textContent = leftSeries.formatAxis(val);
       gridGroup.appendChild(leftLabel);
+      leftAxisLabelEls.push(leftLabel);
       if (rightSeries) {
         var rVal = (rightNice.max / ticks) * t;
         var rLabel = el('text', { x: VB_W - MARGIN.right + 10, y: y + 4, class: 'dt-ichart-axislabel dt-ichart-axislabel--right', 'text-anchor': 'start' });
@@ -166,6 +168,15 @@
     svg.appendChild(activePill);
 
     container.appendChild(svg);
+
+    var statsEl = container.previousElementSibling;
+    if (statsEl && statsEl.classList.contains('dt-ichart-stats')) {
+      requestAnimationFrame(function () {
+        var minLeft = Math.min.apply(null, leftAxisLabelEls.map(function (l) { return l.getBoundingClientRect().left; }));
+        var statsLeft = statsEl.getBoundingClientRect().left;
+        statsEl.style.paddingLeft = Math.max(0, minLeft - statsLeft) + 'px';
+      });
+    }
 
     var tooltip = document.createElement('div');
     tooltip.className = 'dt-ichart-tooltip';
