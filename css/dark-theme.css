@@ -23,6 +23,7 @@
 
   --go:         #34D399;
   --no:         #FB7185;
+  --chart-2:    #F2A93B;
 
   --glass-bg:      rgba(255, 255, 255, 0.05);
   --glass-bg-hi:   rgba(255, 255, 255, 0.08);
@@ -451,6 +452,40 @@
 
 /* --- GoHighLevel booking embeds --------------------------------------------- */
 .dt-ghl-embed { display: block; width: 100%; min-height: 750px; border: none; overflow: hidden; border-radius: var(--radius); }
+
+/* --- Interactive line chart -------------------------------------------------- */
+.dt-ichart-card { padding: 1.5rem 1.25rem 1.25rem; }
+.dt-ichart-stats { display: flex; flex-wrap: wrap; gap: 1.75rem; margin-bottom: 1.25rem; }
+.dt-ichart-stat { display: flex; flex-direction: column; gap: 0.3rem; }
+.dt-ichart-stat-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--paper-mute); text-transform: uppercase; letter-spacing: 0.04em; }
+.dt-ichart-stat-swatch { width: 0.6rem; height: 0.6rem; border-radius: 999px; flex: none; }
+.dt-ichart-stat-value { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--paper); }
+
+.dt-ichart { position: relative; }
+.dt-ichart-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.dt-ichart-gridline { stroke: rgba(255,255,255,0.08); stroke-width: 1; }
+.dt-ichart-axislabel { font-size: 12px; fill: var(--paper-mute); font-family: var(--font-body); }
+.dt-ichart-axislabel--right { fill: var(--paper-mute); }
+.dt-ichart-xlabel { font-size: 12px; fill: var(--paper-mute); font-family: var(--font-body); }
+.dt-ichart-line { stroke-width: 2.25; }
+.dt-ichart-guide { stroke: var(--glass-border-hi); stroke-width: 1; opacity: 0; transition: opacity 0.15s var(--ease); pointer-events: none; }
+.dt-ichart-dot { opacity: 0; transition: opacity 0.15s var(--ease); stroke: var(--ink); stroke-width: 1.5; pointer-events: none; }
+.dt-ichart-pill { opacity: 0; transition: opacity 0.15s var(--ease); pointer-events: none; }
+.dt-ichart-pill rect { fill: var(--paper); }
+.dt-ichart-pilltext { font-size: 12px; font-weight: 700; fill: var(--ink); font-family: var(--font-body); }
+.dt-ichart-svg { cursor: crosshair; }
+
+.dt-ichart-tooltip {
+  position: absolute; top: 0.5rem; opacity: 0; pointer-events: none;
+  background: var(--ink-raised); border: 1px solid var(--glass-border-hi); border-radius: var(--radius);
+  padding: 0.75rem 0.9rem; min-width: 150px; box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  transition: opacity 0.15s var(--ease); z-index: 2;
+}
+.dt-ichart-tooltip-date { font-size: 0.78rem; color: var(--paper-mute); margin-bottom: 0.45rem; font-weight: 600; }
+.dt-ichart-tooltip-row { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; padding-block: 0.15rem; }
+.dt-ichart-tooltip-dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; flex: none; }
+.dt-ichart-tooltip-label { color: var(--paper-dim); flex: 1; }
+.dt-ichart-tooltip-value { color: var(--paper); font-weight: 700; }
 
 @media (max-width: 900px) {
   .dt-bio { grid-template-columns: 1fr; }
