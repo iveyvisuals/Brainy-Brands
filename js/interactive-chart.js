@@ -109,7 +109,14 @@
     var everyN = cfg.xTickEvery || 12;
     var xTickIdxs = [];
     for (var i = 0; i < n; i += everyN) { xTickIdxs.push(i); }
-    if (xTickIdxs[xTickIdxs.length - 1] !== n - 1) { xTickIdxs.push(n - 1); }
+    var lastIdx = xTickIdxs.length - 1;
+    if (xTickIdxs[lastIdx] !== n - 1) {
+      if (n - 1 - xTickIdxs[lastIdx] < everyN / 2) {
+        xTickIdxs[lastIdx] = n - 1;
+      } else {
+        xTickIdxs.push(n - 1);
+      }
+    }
     xTickIdxs.forEach(function (idx) {
       var lbl = el('text', { x: xAt(idx), y: VB_H - 10, class: 'dt-ichart-xlabel', 'text-anchor': 'middle' });
       lbl.textContent = cfg.xLabel(data[idx].date);
