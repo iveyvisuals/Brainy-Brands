@@ -367,9 +367,13 @@
 .dt-frame--square { aspect-ratio: 1/1; }
 .dt-frame--wide { aspect-ratio: 16/9; }
 .dt-frame--content { aspect-ratio: 2560/1583; }
+.dt-frame--contain img { object-fit: contain; }
 
 /* --- Portfolio "see more" reveal ------------------------------------------ */
-.dt-portfolio-more { display: flex; justify-content: center; margin-top: 1.5rem; }
+.dt-portfolio-more { display: flex; justify-content: center; margin-top: 2.5rem; margin-bottom: 2.5rem; }
+
+/* --- Section heading accent ------------------------------------------------ */
+.dt-h2--accent { color: var(--accent); }
 
 /* --- Bio layout (about page) ---------------------------------------------- */
 .dt-bio { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 2rem; align-items: center; }
