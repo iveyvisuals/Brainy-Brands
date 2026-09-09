@@ -460,7 +460,7 @@
 .dt-ichart-stat-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--paper-mute); text-transform: uppercase; letter-spacing: 0.04em; }
 .dt-ichart-stat-swatch { width: 0.6rem; height: 0.6rem; border-radius: 999px; flex: none; }
 .dt-ichart-stat-value { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--paper); }
-.dt-ichart-stat-value--secondary { font-size: 1.05rem; color: var(--paper-dim); }
+.dt-ichart-stat-value--secondary { color: var(--paper-dim); }
 
 .dt-ichart { position: relative; }
 .dt-ichart-svg { display: block; width: 100%; height: auto; overflow: visible; }
