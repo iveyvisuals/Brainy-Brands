@@ -142,9 +142,15 @@
       dots[s.key] = dot;
     });
 
+    var PILL_H = 22;
+    var PILL_CENTER_Y = VB_H - 14;
     var activePill = el('g', { class: 'dt-ichart-pill' });
-    var pillRect = el('rect', { rx: 10, ry: 10, height: 22 });
-    var pillText = el('text', { class: 'dt-ichart-pilltext', 'text-anchor': 'middle', y: VB_H - 10 + 5 });
+    var pillRect = el('rect', { rx: 10, ry: 10, height: PILL_H, y: PILL_CENTER_Y - PILL_H / 2 });
+    var pillText = el('text', {
+      class: 'dt-ichart-pilltext', 'text-anchor': 'middle',
+      'dominant-baseline': 'central', 'alignment-baseline': 'central',
+      y: PILL_CENTER_Y
+    });
     activePill.appendChild(pillRect);
     activePill.appendChild(pillText);
     svg.appendChild(activePill);
@@ -183,14 +189,13 @@
       tooltip.style.transform = 'translateX(' + (pxPct < 0.5 ? '10px' : 'calc(-100% - 10px)') + ')';
 
       pillText.textContent = formatMonthYear(data[i].date);
+      pillText.setAttribute('x', x);
       activePill.style.opacity = 1;
       requestAnimationFrame(function () {
         var bbox = pillText.getBBox();
         var padX = 10;
         pillRect.setAttribute('width', bbox.width + padX * 2);
         pillRect.setAttribute('x', x - bbox.width / 2 - padX);
-        pillRect.setAttribute('y', VB_H - 10 - 16);
-        pillText.setAttribute('x', x);
       });
     }
 

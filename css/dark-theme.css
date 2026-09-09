@@ -455,11 +455,18 @@
 
 /* --- Interactive line chart -------------------------------------------------- */
 .dt-ichart-card { padding: 1.5rem 1.25rem 1.25rem; }
-.dt-ichart-stats { display: flex; flex-wrap: wrap; gap: 1.75rem; margin-bottom: 1.25rem; }
+.dt-ichart-stats { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.25rem; }
+.dt-ichart-stats-group { display: flex; flex-wrap: wrap; gap: 1.75rem; }
+.dt-ichart-stats-group--secondary { gap: 1.5rem; margin-left: auto; }
 .dt-ichart-stat { display: flex; flex-direction: column; gap: 0.3rem; }
 .dt-ichart-stat-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--paper-mute); text-transform: uppercase; letter-spacing: 0.04em; }
 .dt-ichart-stat-swatch { width: 0.6rem; height: 0.6rem; border-radius: 999px; flex: none; }
 .dt-ichart-stat-value { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--paper); }
+.dt-ichart-stats-group--secondary .dt-ichart-stat-value { font-size: 1.05rem; color: var(--paper-dim); }
+
+@media (max-width: 640px) {
+  .dt-ichart-stats-group--secondary { margin-left: 0; }
+}
 
 .dt-ichart { position: relative; }
 .dt-ichart-svg { display: block; width: 100%; height: auto; overflow: visible; }
