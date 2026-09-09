@@ -248,7 +248,7 @@
 
 /* --- Step cards ------------------------------------------------------------ */
 .dt-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
-.dt-step { padding: 1.75rem; }
+.dt-step { padding: 0; }
 .dt-step-num { font-weight: 700; font-size: 1rem; color: var(--accent); }
 .dt-step h3 { font-size: 1.1rem; margin-top: 0.75rem; }
 .dt-step p { margin-top: 0.6rem; color: var(--paper-dim); font-size: 0.92rem; }
@@ -509,17 +509,45 @@
   .dt-flip-inner { transition: none; }
 }
 
-.dt-step.dt-flip { height: 360px; }
-.dt-step .dt-flip-face { padding: 1.6rem; }
-.dt-step .dt-flip-back p { font-size: 0.92rem; }
-.dt-step .dt-flip-front { justify-content: center; }
+.dt-step.dt-flip { height: 340px; }
+.dt-step .dt-flip-face {
+  padding: 2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+.dt-step .dt-flip-front { justify-content: center; gap: 0.6rem; }
+.dt-step-num--big {
+  display: block; font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(3.5rem, 3rem + 2vw, 5.5rem); line-height: 1;
+  color: var(--accent); opacity: 0.92;
+}
+.dt-step .dt-flip-front h3 { font-size: 1.65rem; line-height: 1.25; margin-top: 0.25rem; }
+.dt-step .dt-flip-back { justify-content: flex-start; }
+.dt-step .dt-flip-back .dt-step-num { font-size: 1rem; }
+.dt-step .dt-flip-back p { font-size: 0.98rem; margin-top: 0.75rem; line-height: 1.55; }
+.dt-step .dt-flip-cta { font-size: 0.98rem; }
 
 .dt-grid > article.dt-flip { border-top: none; padding-top: 0; }
-.dt-cert-flip { height: 200px; }
-.dt-cert-flip .dt-flip-face { padding: 1.5rem; }
-.dt-cert-flip .dt-flip-front { justify-content: center; border-top: 1px solid rgba(255,255,255,0.08); }
-.dt-cert-flip .dt-flip-back { border-top: 1px solid rgba(255,255,255,0.08); }
-.dt-cert-flip .dt-flip-back p { color: var(--paper-dim); font-size: 0.9rem; }
+.dt-cert-flip { height: 210px; }
+.dt-cert-flip .dt-flip-face {
+  padding: 1.5rem;
+  background: linear-gradient(155deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
+  border: 1px solid var(--glass-border-hi);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.12);
+}
+.dt-cert-flip .dt-flip-front { justify-content: center; }
+.dt-cert-flip .dt-flip-back { justify-content: center; }
+.dt-cert-flip .dt-flip-back p { color: var(--paper-dim); font-size: 0.9rem; margin: 0; }
+.dt-cert-flip-icon {
+  position: absolute; top: 0; right: 0;
+  width: 1.7rem; height: 1.7rem; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--glass-bg-hi); border: 1px solid var(--glass-border-hi);
+  color: var(--accent);
+}
+.dt-cert-flip-icon svg { width: 0.85rem; height: 0.85rem; }
 
 @media (max-width: 900px) {
   .dt-bio { grid-template-columns: 1fr; }
