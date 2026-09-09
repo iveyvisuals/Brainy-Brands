@@ -376,6 +376,7 @@
 .dt-grid > article { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; }
 .dt-grid > article h3 { font-size: 1.05rem; font-weight: 600; }
 .dt-grid > article p { margin-top: 0.5rem; color: var(--paper-dim); font-size: 0.92rem; }
+.dt-cert-badge { display: block; width: 100%; max-width: 220px; margin-bottom: 0.85rem; border-radius: var(--radius); background: #fff; }
 
 /* --- Generic glass panel (pricing tiers, case studies, disclaimers) ------- */
 .dt-panel { padding: 1.75rem; }
