@@ -555,6 +555,10 @@
 .dt-grid--2col { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 640px) { .dt-grid--2col { grid-template-columns: 1fr; } }
 
+.dt-grid--4col { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .dt-grid--4col { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .dt-grid--4col { grid-template-columns: 1fr; } }
+
 .dt-agree-flip { height: 260px; }
 
 @media (max-width: 900px) {
