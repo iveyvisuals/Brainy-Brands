@@ -389,6 +389,7 @@
 /* --- Generic glass panel (pricing tiers, case studies, disclaimers) ------- */
 .dt-panel { padding: 1.75rem; }
 .dt-panel h3 { font-size: 1.1rem; font-weight: 700; }
+.dt-grid-2--wide .dt-panel h3 { font-size: 1.3rem; }
 .dt-metric { display: block; margin-bottom: 0.2rem; font-weight: 800; font-size: clamp(1.15rem, 0.9rem + 1.1vw, 1.7rem); line-height: 1.15; color: var(--accent); font-variant-numeric: tabular-nums; }
 .dt-nowrap { white-space: nowrap; }
 .dt-tag { font-size: 0.8rem; color: var(--paper-mute); text-transform: uppercase; letter-spacing: 0.03em; }
