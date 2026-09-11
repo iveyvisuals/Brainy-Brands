@@ -376,7 +376,7 @@
 .dt-h2--accent { color: var(--accent); scroll-margin-top: 6rem; }
 
 /* --- Bio layout (about page) ---------------------------------------------- */
-.dt-bio { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 2rem; align-items: center; }
+.dt-bio { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 4rem; align-items: center; }
 
 /* --- Plain content grids (articles: who we take on, certifications) ------ */
 .dt-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 1.75rem; }
