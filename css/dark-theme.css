@@ -413,7 +413,7 @@
 .dt-carousel-arrow:disabled { opacity: 0.3; cursor: default; }
 .dt-carousel-card { position: relative; transition: opacity 0.32s var(--ease), transform 0.32s var(--ease); }
 .dt-carousel-card[hidden] { display: none; }
-.dt-carousel-card .dt-logo-chip { position: absolute; top: 1.75rem; right: 1.75rem; margin-bottom: 0; }
+.dt-carousel-card .dt-logo-chip { position: absolute; top: 1.75rem; right: 1.75rem; align-items: flex-start; height: auto; margin-bottom: 0; }
 .dt-carousel-card h3 { font-size: 1.6rem; padding-right: 8rem; }
 .dt-carousel-counter { margin-top: 1rem; font-size: 0.8rem; color: var(--paper-mute); font-variant-numeric: tabular-nums; text-align: center; }
 
