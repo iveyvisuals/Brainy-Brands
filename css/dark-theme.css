@@ -547,6 +547,8 @@
 .dt-cert-flip .dt-flip-front h3 { font-size: 2rem; line-height: 1.2; font-weight: 700; color: var(--accent); }
 .dt-cert-flip .dt-flip-back { justify-content: center; }
 .dt-cert-flip .dt-flip-back p { color: var(--paper-dim); font-size: 0.9rem; margin: 0; }
+.dt-cert-flip .dt-flip-back .dt-cert-completed { margin-top: 0.85rem; }
+.dt-cert-flip .dt-flip-back .dt-cert-date { color: var(--accent); font-weight: 600; }
 .dt-cert-flip-icon {
   position: absolute; top: 1.15rem; right: 1.15rem;
   display: flex; align-items: center; justify-content: center;
