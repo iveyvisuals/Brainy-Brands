@@ -414,7 +414,7 @@
 .dt-carousel-card { position: relative; display: grid; grid-template-columns: 1fr auto; column-gap: 1.25rem; align-items: start; transition: opacity 0.32s var(--ease), transform 0.32s var(--ease); }
 .dt-carousel-card[hidden] { display: none; }
 .dt-carousel-card .dt-logo-chip { grid-column: 2; grid-row: 1; justify-self: end; margin-bottom: 0; }
-.dt-carousel-card h3 { grid-column: 1; grid-row: 1; align-self: start; }
+.dt-carousel-card h3 { grid-column: 1; grid-row: 1; align-self: start; font-size: 1.4rem; }
 .dt-carousel-card .dt-metric, .dt-carousel-card .dt-tag, .dt-carousel-card .dt-prose { grid-column: 1 / -1; }
 .dt-carousel-counter { margin-top: 1rem; font-size: 0.8rem; color: var(--paper-mute); font-variant-numeric: tabular-nums; text-align: center; }
 
