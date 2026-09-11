@@ -231,7 +231,7 @@
 .dt-case-tag { font-size: 0.8rem; color: var(--paper-mute); text-transform: uppercase; letter-spacing: 0.03em; }
 .dt-case-metric { grid-column: 1; font-weight: 700; font-size: 1.4rem; color: var(--accent); font-variant-numeric: tabular-nums; }
 .dt-case-line { grid-column: 1 / -1; font-size: 0.9rem; color: var(--paper-dim); }
-.dt-case-logo { grid-row: 1; grid-column: 2; justify-self: end; display: inline-flex; align-items: center; }
+.dt-case-logo { grid-row: 1 / span 2; grid-column: 2; align-self: center; justify-self: end; display: inline-flex; align-items: center; }
 .dt-case-logo img { display: block; height: 38px; width: auto; max-width: 300px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9; }
 
 /* Reserved to its final width by JS before the count-up animation starts
