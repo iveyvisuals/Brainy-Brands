@@ -389,9 +389,10 @@
 .dt-panel { padding: 1.75rem; }
 .dt-panel h3 { font-size: 1.1rem; font-weight: 700; }
 .dt-metric { display: block; margin-bottom: 0.2rem; font-weight: 800; font-size: clamp(1.15rem, 0.9rem + 1.1vw, 1.7rem); color: var(--accent); font-variant-numeric: tabular-nums; }
+.dt-nowrap { white-space: nowrap; }
 .dt-tag { font-size: 0.8rem; color: var(--paper-mute); text-transform: uppercase; letter-spacing: 0.03em; }
 .dt-price-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 2rem; }
-.dt-logo-chip { display: inline-flex; align-items: center; margin-bottom: 1.25rem; }
+.dt-logo-chip { display: inline-flex; align-items: center; height: 62px; margin-bottom: 1.25rem; }
 /* Default height for any logo that doesn't set its own via an inline
    height style — badge-shaped marks (dense, near-square) need a taller
    box than flat wordmarks to read at the same visual weight, so specific
