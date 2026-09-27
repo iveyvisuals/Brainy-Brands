@@ -349,6 +349,7 @@
   .dt-rows--grid { grid-template-columns: 1fr; }
   .dt-hero-actions { flex-direction: column; align-items: stretch; }
   .dt-hero-actions .dt-btn { width: 100%; }
+  .dt-btn { font-size: 0.9rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .dt-marquee-track { animation: none; }
@@ -450,6 +451,10 @@
 .dt-carousel-card[hidden] { display: none; }
 .dt-carousel-card .dt-logo-chip { position: absolute; top: 1.75rem; right: 1.75rem; align-items: flex-start; height: auto; margin-bottom: 0; }
 .dt-carousel-card h3 { font-size: 1.6rem; padding-right: 8rem; }
+@media (max-width: 640px) {
+  .dt-carousel-card .dt-logo-chip { position: static; display: flex; margin-bottom: 1rem; }
+  .dt-carousel-card h3 { padding-right: 0; }
+}
 .dt-carousel-counter { margin-top: 1rem; font-size: 0.8rem; color: var(--paper-mute); font-variant-numeric: tabular-nums; text-align: center; }
 
 /* --- Forms ------------------------------------------------------------------ */
