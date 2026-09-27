@@ -36,6 +36,36 @@
     });
   }
 
+  // Mobile hamburger menu -- toggles the nav+CTA panel that sits under the
+  // header on narrow screens. On desktop .dt-nav-panel is `display:contents`
+  // so this button stays hidden and never fires.
+  var navToggle = document.querySelector('.dt-nav-toggle');
+  var navPanel = document.getElementById('nav-panel');
+  if (navToggle && navPanel) {
+    var closePanel = function () {
+      navPanel.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      closeAll();
+    };
+    navToggle.addEventListener('click', function () {
+      var willOpen = !navPanel.classList.contains('is-open');
+      if (willOpen) {
+        navPanel.classList.add('is-open');
+        navToggle.setAttribute('aria-expanded', 'true');
+      } else {
+        closePanel();
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (!navPanel.classList.contains('is-open')) { return; }
+      if (navPanel.contains(e.target) || navToggle.contains(e.target)) { return; }
+      closePanel();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closePanel(); }
+    });
+  }
+
   // Masthead sits transparent over the hero below it; once the page scrolls
   // past that hero, it needs a solid ground to stay readable over light
   // content, so it picks one up here instead of carrying it all the time.

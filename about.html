@@ -7,7 +7,7 @@
 <meta name="description" content="One account manager, 24-hour response, flat fee instead of a percentage of your ad spend. How Dale Lin runs Brainy Brands.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/dark-theme.css?v=24">
+<link rel="stylesheet" href="css/dark-theme.css?v=25">
 </head>
 <body class="dt">
 
@@ -17,6 +17,12 @@
 <header class="dt-header">
   <div class="dt-shell dt-header-row">
     <a class="dt-brand" href="index.html"><img src="images/BrainyBrands_PrimaryLogo_White.png" alt="Brainy Brands"></a>
+    <button type="button" class="dt-nav-toggle" aria-controls="nav-panel" aria-expanded="false" aria-label="Menu">
+      <span class="dt-nav-toggle-bar"></span>
+      <span class="dt-nav-toggle-bar"></span>
+      <span class="dt-nav-toggle-bar"></span>
+    </button>
+    <div class="dt-nav-panel" id="nav-panel">
     <ul class="dt-nav" id="primary-nav">
       <li class="has-submenu">
         <a href="services.html">Services</a>
@@ -42,6 +48,7 @@
       <li><a href="faq.html">FAQ</a></li>
     </ul>
     <a class="dt-cta dt-cta--ghost" href="free-audit.html">Book a discovery call</a>
+    </div>
   </div>
 </header>
 
@@ -259,7 +266,7 @@
   </div>
 </footer>
 
-<script src="js/nav.js?v=2" defer></script>
+<script src="js/nav.js?v=3" defer></script>
 <script src="js/flip-cards.js" defer></script>
 <script>
 (function () {
