@@ -349,7 +349,7 @@
   .dt-rows--grid { grid-template-columns: 1fr; }
   .dt-hero-actions { flex-direction: column; align-items: stretch; }
   .dt-hero-actions .dt-btn { width: 100%; }
-  .dt-btn { font-size: 0.9rem; border-radius: 20px; }
+  .dt-btn { font-size: 0.9rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .dt-marquee-track { animation: none; }
