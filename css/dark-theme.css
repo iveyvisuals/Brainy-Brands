@@ -347,6 +347,8 @@
   .dt-case-metric { grid-column: 1; }
   .dt-case-logo { grid-column: 1; grid-row: auto; justify-self: start; margin-bottom: 0.4rem; }
   .dt-rows--grid { grid-template-columns: 1fr; }
+  .dt-hero-actions { flex-direction: column; align-items: stretch; }
+  .dt-hero-actions .dt-btn { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .dt-marquee-track { animation: none; }
@@ -411,9 +413,9 @@
 .dt-bio { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 4rem; align-items: center; }
 
 /* --- Plain content grids (articles: who we take on, certifications) ------ */
-.dt-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 1.75rem; }
-.dt-grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-.dt-grid-2--wide { grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); }
+.dt-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); margin-top: 1.75rem; }
+.dt-grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); }
+.dt-grid-2--wide { grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); }
 .dt-grid > article { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; }
 .dt-grid > article h3 { font-size: 1.05rem; font-weight: 600; }
 .dt-grid > article p { margin-top: 0.5rem; color: var(--paper-dim); font-size: 0.92rem; }
@@ -425,7 +427,7 @@
 .dt-metric { display: block; margin-bottom: 0.2rem; font-weight: 800; font-size: clamp(1.15rem, 0.9rem + 1.1vw, 1.7rem); line-height: 1.15; color: var(--accent); font-variant-numeric: tabular-nums; }
 .dt-nowrap { white-space: nowrap; }
 .dt-tag { font-size: 0.8rem; color: var(--paper-mute); text-transform: uppercase; letter-spacing: 0.03em; }
-.dt-price-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 2rem; }
+.dt-price-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); margin-top: 2rem; }
 .dt-logo-chip { display: inline-flex; align-items: center; height: 62px; margin-bottom: 1.25rem; }
 /* Default height for any logo that doesn't set its own via an inline
    height style — badge-shaped marks (dense, near-square) need a taller
@@ -434,8 +436,8 @@
 .dt-logo-chip img { display: block; height: 46px; width: auto; max-width: 260px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9; }
 
 /* --- Image grids (A+ content, 3D renders, PPC screenshots) ---------------- */
-.dt-img-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 1.75rem; }
-.dt-img-grid--wide { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+.dt-img-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); margin-top: 1.75rem; }
+.dt-img-grid--wide { grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); }
 
 /* --- Case-study carousel (portfolio) --------------------------------------- */
 .dt-carousel-single { display: flex; align-items: center; gap: 1.5rem; }
