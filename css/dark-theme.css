@@ -621,7 +621,7 @@
   .dt-price-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
-  .dt-list-numbered > li { grid-template-columns: 2.25rem minmax(0,1fr); }
+  .dt-list-numbered:not(.dt-list-numbered--noindex) > li { grid-template-columns: 2.25rem minmax(0,1fr); }
   .dt-carousel-single { gap: 1rem; }
   .dt-carousel-arrow { width: 2.25rem; height: 2.25rem; }
 }

@@ -10,7 +10,7 @@
 <meta name="description" content="A+ content, 3D product rendering, and real PPC performance screenshots from accounts we've managed. Plus our Amazon advertising certifications.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/dark-theme.css?v=34">
+<link rel="stylesheet" href="css/dark-theme.css?v=35">
 </head>
 <body class="dt">
 
@@ -806,7 +806,7 @@
         for (var i = 0; i < els.length; i++) { animateCount(els[i]); }
         obs.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
 
     if (caseViewport) { seen.observe(caseViewport); }
   } else {
@@ -861,7 +861,7 @@
         entry.target.setAttribute('data-in', '');
         obs.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
 
     Array.prototype.forEach.call(document.querySelectorAll('.rv'), function (el) { revealed.observe(el); });
   }

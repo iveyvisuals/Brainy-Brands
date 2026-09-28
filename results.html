@@ -10,7 +10,7 @@
 <meta name="description" content="Six Amazon seller accounts, with the actual before and after numbers. Revenue growth and ad spend reductions from manual bid management.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/dark-theme.css?v=34">
+<link rel="stylesheet" href="css/dark-theme.css?v=35">
 </head>
 <body class="dt">
 
@@ -219,7 +219,7 @@
         for (var i = 0; i < counters.length; i++) { animateCount(counters[i]); }
         obs.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
     Array.prototype.forEach.call(document.querySelectorAll('.rv'), function (el) { seen.observe(el); });
   } else {
     var allCounters = document.querySelectorAll('.count-up');

@@ -220,7 +220,7 @@
         entry.target.setAttribute('data-in', '');
         obs.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
     Array.prototype.forEach.call(document.querySelectorAll('.rv'), function (el) { seen.observe(el); });
   }
 })();
