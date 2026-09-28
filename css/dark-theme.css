@@ -233,7 +233,7 @@
 .dt-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
 .dt-split h3 { font-size: 1.2rem; margin-bottom: 1rem; }
 .dt-split .dt-rows { margin-top: 0; }
-.dt-split .dt-row { padding: 1rem 1.25rem; }
+.dt-split .dt-row { padding: 1rem 1.25rem; align-items: center; }
 
 /* --- Case study proof rows ------------------------------------------------ */
 .dt-case-row { display: grid; grid-template-columns: 1fr auto; gap: 0.4rem 1.5rem; align-items: start; padding: 1.35rem 1.75rem; }
