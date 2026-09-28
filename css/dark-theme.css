@@ -374,6 +374,11 @@
 .dt-muted { color: var(--paper-mute); }
 .dt-sm { font-size: 0.9rem; }
 .dt-xs { font-size: 0.8rem; }
+.dt-mobile-only { display: none; }
+@media (max-width: 640px) {
+  .dt-mobile-only { display: inline; }
+  .dt-desktop-only { display: none; }
+}
 .dt-center { text-align: center; }
 .dt-center .dt-lede { margin-inline: auto; }
 .dt-btn--wide { width: 100%; }
