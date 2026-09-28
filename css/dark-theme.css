@@ -340,9 +340,6 @@
   .dt-hero { padding-top: calc(var(--header-h) + 5.5rem); }
 }
 @media (max-width: 640px) {
-  .dt-row { grid-template-columns: 1fr; }
-  .dt-row-icon { margin-bottom: 0.25rem; }
-  .dt-row h3, .dt-row p { grid-column: 1; }
   .dt-case-row { grid-template-columns: 1fr; }
   .dt-case-metric { grid-column: 1; }
   .dt-case-logo { grid-column: 1; grid-row: auto; justify-self: start; margin-bottom: 0.4rem; }
