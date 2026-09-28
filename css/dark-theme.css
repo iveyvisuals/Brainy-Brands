@@ -436,7 +436,11 @@
 .dt-metric { display: block; margin-bottom: 0.2rem; font-weight: 800; font-size: clamp(1.15rem, 0.9rem + 1.1vw, 1.7rem); line-height: 1.15; color: var(--accent); font-variant-numeric: tabular-nums; }
 .dt-nowrap { white-space: nowrap; }
 .dt-tag { font-size: 0.8rem; color: var(--paper-mute); text-transform: uppercase; letter-spacing: 0.03em; }
-.dt-price-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); margin-top: 2rem; align-items: start; }
+.dt-price-list { margin-top: 2rem; }
+.dt-price-item { padding-block: 2.25rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.dt-price-item:first-child { padding-top: 0; border-top: none; }
+.dt-price-item:last-child { padding-bottom: 0; }
+.dt-price-item h3 { font-size: 1.1rem; font-weight: 700; }
 .dt-logo-chip { display: inline-flex; align-items: center; height: 62px; margin-bottom: 1.25rem; }
 /* Default height for any logo that doesn't set its own via an inline
    height style — badge-shaped marks (dense, near-square) need a taller
@@ -618,7 +622,6 @@
 
 @media (max-width: 900px) {
   .dt-bio { grid-template-columns: 1fr; }
-  .dt-price-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .dt-list-numbered:not(.dt-list-numbered--noindex) > li { grid-template-columns: 2.25rem minmax(0,1fr); }
