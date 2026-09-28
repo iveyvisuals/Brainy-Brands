@@ -224,6 +224,12 @@
 .dt-row--no .dt-row-icon { color: var(--no); }
 .dt-row--go .dt-row-icon { color: var(--go); }
 
+/* Icon-less rows (no .dt-row-icon): drop the empty icon column so the
+   text isn't pushed right by a column-gap with nothing in column 1. */
+.dt-row:not(.dt-row--go):not(.dt-row--no) { grid-template-columns: 1fr; }
+.dt-row:not(.dt-row--go):not(.dt-row--no) h3,
+.dt-row:not(.dt-row--go):not(.dt-row--no) p { grid-column: 1; }
+
 /* Two-column variant: a grid (not the default flex column) so each row's
    pair of boxes shares a height and lines up across both columns. */
 .dt-rows--grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.25rem; }
