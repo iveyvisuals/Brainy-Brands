@@ -65,7 +65,7 @@ Style them however you want, but please don't add the nav back.
 
 Anywhere you see this block:
 
-> 25% less ad spend while maintaining sales and ranking — or you don't pay.
+> 25% less ad spend while maintaining sales and ranking.
 > Available to accounts spending $10K+/month on Amazon ads, after a
 > qualifying audit.
 

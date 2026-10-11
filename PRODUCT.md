@@ -77,8 +77,8 @@ guarantee number rather than a vague promise.
 - Case study figures and client names (Magic Brand, Midtown Umbrellas/Yoan, Zestt
   Organics, Temp Tooth, Patriot Crew, Emerald Plastics) are real, confirmed numbers —
   never round, paraphrase, or alter them.
-- The guarantee statement ("25% less ad spend while maintaining sales and ranking —
-  or you don't pay. Available to accounts spending $10K+/month on Amazon
+- The guarantee statement ("25% less ad spend while maintaining sales and ranking.
+  Available to accounts spending $10K+/month on Amazon
   ads, after a qualifying audit.") is locked wording. The qualifier sentence must
   never appear without the headline number, on any page. If it changes, it changes in
   `FUNNEL-AND-SITEMAP.md` first, then everywhere at once — never page by page.

@@ -175,7 +175,7 @@ UTM convention on all ad links: `?utm_source=meta&utm_medium=paid&utm_campaign={
 
 The only approved public phrasing, used identically on every page:
 
-> **25% less ad spend while maintaining sales and ranking — or you don't pay.**
+> **25% less ad spend while maintaining sales and ranking.**
 > Available to accounts spending $10K+/month on Amazon ads, after a qualifying audit.
 
 Rules:
