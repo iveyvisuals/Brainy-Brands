@@ -197,7 +197,7 @@
 .dt-stat-card { padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 0.6rem; }
 .dt-stat-num { font-weight: 800; font-size: clamp(2.25rem, 1.8rem + 1.6vw, 3rem); color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1; }
 .dt-stat-label { font-size: 1.2rem; font-weight: 600; color: var(--paper); }
-.dt-bio-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1.75rem; }
+.dt-bio-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.75rem; }
 .dt-bio-stats .dt-stat-card { padding: 1.1rem 1.25rem; gap: 0.35rem; }
 .dt-bio-stats .dt-stat-num { font-size: clamp(1.7rem, 1.4rem + 1vw, 2.1rem); }
 .dt-stat-unit { font-size: 0.55em; font-weight: 700; color: var(--paper-dim); margin-left: 0.1em; }
@@ -638,6 +638,7 @@
 @media (max-width: 640px) {
   .dt-list-numbered:not(.dt-list-numbered--noindex) > li { grid-template-columns: 2.25rem minmax(0,1fr); }
   .dt-ichart-card { padding: 1.25rem 1rem 1rem; }
+  .dt-bio-stats { grid-template-columns: repeat(2, 1fr); }
   .dt-ichart-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
   .dt-ichart-stat-value { font-size: 1.1rem; }
   .dt-carousel-single { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
