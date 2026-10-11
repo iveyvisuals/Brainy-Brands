@@ -284,6 +284,9 @@
 .dt-final { text-align: center; }
 .dt-final .dt-h2 { max-width: 26ch; margin-inline: auto; }
 .dt-final .dt-lede { margin-inline: auto; }
+.dt-final-faq { margin-top: clamp(2.5rem, 2rem + 2vw, 3.5rem); text-align: left; }
+.dt-final-faq-title { text-align: center; font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem); font-weight: 700; }
+.dt-final-faq .dt-faq { margin-top: 1.25rem; }
 
 /* --- Footer ------------------------------------------------------------------ */
 .dt-footer { padding-block: 2.5rem 2rem; border-top: 1px solid var(--glass-border); }
