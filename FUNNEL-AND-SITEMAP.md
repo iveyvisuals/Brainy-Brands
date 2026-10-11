@@ -175,13 +175,14 @@ UTM convention on all ad links: `?utm_source=meta&utm_medium=paid&utm_campaign={
 
 The only approved public phrasing, used identically on every page:
 
-> **25% ad spend reduction in 30 days, scaling toward 50% by day 60–90 — or you don't pay.**
+> **25% less ad spend while maintaining sales and ranking — or you don't pay.**
 > Available to accounts spending $10K+/month on Amazon ads, after a qualifying audit.
 
 Rules:
 - The qualifier sentence is not optional. It appears everywhere the number appears.
-- Never lead with 50%. Never use the old 30% figure from the retired VSL — it carried
-  different conditions and mixing them is a bait-and-switch exposure.
+- Do not use any "scaling toward 50%" claim. It was removed to avoid over-promising.
+  Never use the old 30% figure from the retired VSL — it carried different conditions
+  and mixing them is a bait-and-switch exposure.
 - If Dale asks to change this, it changes in `FUNNEL-AND-SITEMAP.md` first, then
   everywhere at once. Not page by page.
 

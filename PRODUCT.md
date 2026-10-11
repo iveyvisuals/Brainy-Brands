@@ -25,8 +25,8 @@ Brainy Brands is Dale's fully-managed Amazon PPC/advertising service. It exists 
 a specific, recurring problem: Amazon's default ad settings (dynamic bidding, placement
 multipliers) are on by default and quietly cost sellers more per click over time. The
 service manually manages bids top-down instead of letting Amazon's algorithm run
-unsupervised. Success is measured concretely: 25% ad spend reduction in 30 days, scaling
-toward 50% by day 60–90 (the locked guarantee language — see Evidence on Hand), plus
+unsupervised. Success is measured concretely: 25% less ad spend while maintaining sales
+and ranking (the locked guarantee language — see Evidence on Hand), plus
 the revenue growth documented in the six case studies.
 
 ## Positioning
@@ -77,8 +77,8 @@ guarantee number rather than a vague promise.
 - Case study figures and client names (Magic Brand, Midtown Umbrellas/Yoan, Zestt
   Organics, Temp Tooth, Patriot Crew, Emerald Plastics) are real, confirmed numbers —
   never round, paraphrase, or alter them.
-- The guarantee statement ("25% ad spend reduction in 30 days, scaling toward 50% by
-  day 60–90 — or you don't pay. Available to accounts spending $10K+/month on Amazon
+- The guarantee statement ("25% less ad spend while maintaining sales and ranking —
+  or you don't pay. Available to accounts spending $10K+/month on Amazon
   ads, after a qualifying audit.") is locked wording. The qualifier sentence must
   never appear without the headline number, on any page. If it changes, it changes in
   `FUNNEL-AND-SITEMAP.md` first, then everywhere at once — never page by page.
