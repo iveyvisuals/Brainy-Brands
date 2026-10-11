@@ -24,6 +24,7 @@
   --go:         #34D399;
   --no:         #FB7185;
   --chart-2:    #F2A93B;
+  --chart-3:    #A78BFA;
 
   --glass-bg:      rgba(255, 255, 255, 0.05);
   --glass-bg-hi:   rgba(255, 255, 255, 0.08);
@@ -42,7 +43,7 @@
 /* --- Reset / base ------------------------------------------------------- */
 
 .dt * , .dt *::before, .dt *::after { box-sizing: border-box; }
-.dt { background: var(--ink); color: var(--paper); font-family: var(--font-body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.dt { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--font-body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 .dt :where(h1, h2, h3, h4) { font-family: var(--font-display); margin: 0; line-height: 1.05; letter-spacing: -0.02em; color: var(--paper); }
 .dt :where(p) { margin: 0; }
 .dt a { color: inherit; }
@@ -114,7 +115,7 @@
 
 /* Mobile nav toggle -- hidden on desktop, where .dt-nav-panel just renders
    inline as part of the header row. */
-.dt-nav-toggle { display: none; flex-direction: column; justify-content: center; align-items: stretch; gap: 5px; width: 2.25rem; height: 2.25rem; padding: 0; background: none; border: none; cursor: pointer; }
+.dt-nav-toggle { display: none; flex-direction: column; justify-content: center; align-items: stretch; gap: 5px; width: 2.75rem; height: 2.75rem; padding: 0 0.25rem; margin-right: -0.25rem; background: none; border: none; cursor: pointer; }
 .dt-nav-toggle-bar { display: block; height: 2px; width: 100%; background: var(--paper); border-radius: 2px; transition: transform 0.2s var(--ease), opacity 0.2s var(--ease); }
 .dt-nav-toggle[aria-expanded="true"] .dt-nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .dt-nav-toggle[aria-expanded="true"] .dt-nav-toggle-bar:nth-child(2) { opacity: 0; }
@@ -182,6 +183,7 @@
 .dt-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
   padding: 0.95rem 1.6rem; border-radius: 999px; font-weight: 600; font-size: 1rem;
+  text-align: center; text-wrap: balance;
   text-decoration: none; transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
 }
 .dt-btn--primary { background: var(--accent); color: var(--accent-ink); }
@@ -531,7 +533,8 @@
 .dt-ichart-pill { opacity: 0; transition: opacity 0.15s var(--ease); pointer-events: none; }
 .dt-ichart-pill rect { fill: var(--paper); }
 .dt-ichart-pilltext { font-size: 12px; font-weight: 700; fill: var(--ink); font-family: var(--font-body); }
-.dt-ichart-svg { cursor: crosshair; }
+.dt-ichart-svg { cursor: crosshair; touch-action: pan-y; }
+.dt-ichart--compact .dt-ichart-axislabel, .dt-ichart--compact .dt-ichart-xlabel, .dt-ichart--compact .dt-ichart-pilltext { font-size: 11px; }
 
 .dt-ichart-tooltip {
   position: absolute; top: 0.5rem; opacity: 0; pointer-events: none;
@@ -552,7 +555,7 @@
   transition: transform 0.6s cubic-bezier(0.77,0,0.175,1);
   transform-style: preserve-3d;
 }
-.dt-flip:hover .dt-flip-inner,
+@media (hover: hover) { .dt-flip:hover .dt-flip-inner { transform: rotateY(180deg); } }
 .dt-flip.is-flipped .dt-flip-inner { transform: rotateY(180deg); }
 .dt-flip-face {
   position: absolute; inset: 0;
@@ -622,9 +625,15 @@
 
 @media (max-width: 900px) {
   .dt-bio { grid-template-columns: 1fr; }
+  .dt-bio .dt-frame { width: min(100%, 360px); margin-inline: auto; }
 }
 @media (max-width: 640px) {
   .dt-list-numbered:not(.dt-list-numbered--noindex) > li { grid-template-columns: 2.25rem minmax(0,1fr); }
-  .dt-carousel-single { gap: 1rem; }
-  .dt-carousel-arrow { width: 2.25rem; height: 2.25rem; }
+  .dt-ichart-card { padding: 1.25rem 1rem 1rem; }
+  .dt-ichart-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+  .dt-ichart-stat-value { font-size: 1.1rem; }
+  .dt-carousel-single { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .dt-carousel-viewport { grid-column: 1 / -1; grid-row: 1; }
+  .dt-carousel-single > [data-case-prev] { grid-row: 2; grid-column: 1; justify-self: end; }
+  .dt-carousel-single > [data-case-next] { grid-row: 2; grid-column: 2; justify-self: start; }
 }

@@ -3,9 +3,7 @@
   'use strict';
 
   var NS = 'http://www.w3.org/2000/svg';
-  var VB_W = 1000;
-  var VB_H = 380;
-  var MARGIN = { top: 24, right: 54, bottom: 34, left: 60 };
+  var COMPACT_BELOW = 600;
 
   function el(name, attrs) {
     var node = document.createElementNS(NS, name);
@@ -55,13 +53,27 @@
     return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
   }
 
-  function renderLineChart(container, cfg) {
+  function renderLineChart(container, cfg, opts) {
+    opts = opts || {};
     var data = cfg.data;
     var series = cfg.series;
     var n = data.length;
 
+    // On narrow screens the chart is drawn at the container's real pixel width
+    // so axis text stays readable, instead of scaling a 1000-wide canvas down.
+    var measured = container.clientWidth || 1000;
+    var compact = measured < COMPACT_BELOW;
+    var VB_W = compact ? Math.round(measured) : 1000;
+    var VB_H = compact ? 300 : 380;
+    var MARGIN = compact
+      ? { top: 16, right: 42, bottom: 30, left: 48 }
+      : { top: 24, right: 54, bottom: 34, left: 60 };
+
     container.innerHTML = '';
     container.classList.add('dt-ichart');
+    container.classList.toggle('dt-ichart--compact', compact);
+    container.__bbCfg = cfg;
+    container.__bbWidth = measured;
 
     var svg = el('svg', {
       viewBox: '0 0 ' + VB_W + ' ' + VB_H,
@@ -73,11 +85,18 @@
     var plotW = VB_W - MARGIN.left - MARGIN.right;
     var plotH = VB_H - MARGIN.top - MARGIN.bottom;
 
-    var leftSeries = series.filter(function (s) { return s.axis === 'left'; })[0];
-    var rightSeries = series.filter(function (s) { return s.axis === 'right'; })[0];
+    var leftList = series.filter(function (s) { return s.axis === 'left'; });
+    var rightList = series.filter(function (s) { return s.axis === 'right'; });
+    var leftSeries = leftList[0];
+    var rightSeries = rightList[0];
 
-    var leftRawMax = Math.max.apply(null, data.map(function (d) { return d[leftSeries.key]; }));
-    var rightRawMax = rightSeries ? Math.max.apply(null, data.map(function (d) { return d[rightSeries.key]; })) : 0;
+    function axisMax(list) {
+      return Math.max.apply(null, list.map(function (s) {
+        return Math.max.apply(null, data.map(function (d) { return d[s.key]; }));
+      }));
+    }
+    var leftRawMax = axisMax(leftList);
+    var rightRawMax = rightSeries ? axisMax(rightList) : 0;
     var leftNice = niceMax(leftRawMax, 4);
     var rightNice = rightSeries ? niceMax(rightRawMax, 4) : null;
 
@@ -109,6 +128,10 @@
     // X-axis tick labels (sparse), always including the last month
     var xTickGroup = el('g', { class: 'dt-ichart-xticks' });
     var everyN = cfg.xTickEvery || 12;
+    if (compact) {
+      var maxLabels = Math.max(3, Math.floor(plotW / 62));
+      everyN = Math.max(everyN, Math.ceil((n - 1) / (maxLabels - 1)));
+    }
     var xTickIdxs = [];
     for (var i = 0; i < n; i += everyN) { xTickIdxs.push(i); }
     var lastIdx = xTickIdxs.length - 1;
@@ -138,6 +161,7 @@
         stroke: s.color,
         fill: 'none'
       });
+      if (s.dashed) { path.setAttribute('stroke-dasharray', '7 6'); }
       seriesGroup.appendChild(path);
       linePaths[s.key] = path;
     });
@@ -245,11 +269,12 @@
 
     // Draw-in animation once visible
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduced && 'IntersectionObserver' in window) {
+    if (!reduced && !opts.noAnim && 'IntersectionObserver' in window) {
       var seen = new IntersectionObserver(function (entries, obs) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) { return; }
           series.forEach(function (s) {
+            if (s.dashed) { return; }
             var path = linePaths[s.key];
             var len = path.getTotalLength();
             path.style.strokeDasharray = len;
@@ -265,5 +290,28 @@
     }
   }
 
-  global.BBChart = { renderLineChart: renderLineChart };
+  function watchResize(container) {
+    if (container.__bbWatching) { return; }
+    container.__bbWatching = true;
+    var timer = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        var w = container.clientWidth;
+        if (!w || !container.__bbCfg) { return; }
+        var wasCompact = container.__bbWidth < COMPACT_BELOW;
+        var isCompact = w < COMPACT_BELOW;
+        if (wasCompact !== isCompact || (isCompact && Math.abs(w - container.__bbWidth) > 24)) {
+          renderLineChart(container, container.__bbCfg, { noAnim: true });
+        }
+      }, 200);
+    });
+  }
+
+  global.BBChart = {
+    renderLineChart: function (container, cfg) {
+      renderLineChart(container, cfg);
+      watchResize(container);
+    }
+  };
 })(window);
