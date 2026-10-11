@@ -653,3 +653,49 @@
   .dt-carousel-single > [data-case-prev] { grid-row: 2; grid-column: 1; justify-self: end; }
   .dt-carousel-single > [data-case-next] { grid-row: 2; grid-column: 2; justify-self: start; }
 }
+
+/* --- Lead-magnet popup (js/lead-popup.js) ---------------------------------- */
+.dt-lm { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 1.25rem; }
+.dt-lm[hidden], .dt-lm [hidden] { display: none !important; }
+html.dt-lm-open { overflow: hidden; }
+.dt-lm-backdrop { position: absolute; inset: 0; background: rgba(5, 7, 10, 0.72); opacity: 0; transition: opacity 0.2s var(--ease); }
+.dt-lm-card {
+  position: relative; width: 100%; max-width: 30rem; max-height: calc(100dvh - 2.5rem); overflow-y: auto;
+  padding: 2.5rem 2rem 1.5rem; text-align: center;
+  background: #12161D; border: 1px solid var(--glass-border-hi); border-radius: 18px;
+  box-shadow: 0 40px 80px -24px rgba(0, 0, 0, 0.7);
+  opacity: 0; transform: translateY(14px) scale(0.98);
+  transition: opacity 0.2s var(--ease), transform 0.25s var(--ease);
+}
+.dt-lm.is-in .dt-lm-backdrop { opacity: 1; }
+.dt-lm.is-in .dt-lm-card { opacity: 1; transform: none; }
+.dt-lm-card:focus, .dt-lm-title:focus { outline: none; }
+.dt-lm-x { position: absolute; top: 0.6rem; right: 0.6rem; width: 2.75rem; height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; background: none; border: none; border-radius: 999px; color: var(--paper-dim); cursor: pointer; }
+.dt-lm-x:hover { color: var(--paper); background: rgba(255, 255, 255, 0.06); }
+.dt-lm-x svg { width: 1.25rem; height: 1.25rem; }
+.dt-lm-badge { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.85rem; border-radius: 999px; background: rgba(78, 143, 255, 0.14); color: var(--accent); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em; }
+.dt-lm-badge svg { width: 0.85rem; height: 0.85rem; }
+.dt-lm-title { margin-top: 1rem; font-size: clamp(1.5rem, 1.25rem + 1vw, 1.85rem); line-height: 1.15; }
+.dt-lm-desc { margin-top: 0.75rem; color: var(--paper-dim); font-size: 0.98rem; }
+.dt-lm-form { margin-top: 1.5rem; }
+.dt-lm .dt-field { max-width: none; text-align: left; }
+.dt-lm .dt-field input { font-size: 1rem; }
+.dt-lm-submit { width: 100%; margin-top: 0.85rem; }
+.dt-lm-submit:disabled { opacity: 0.7; cursor: default; transform: none; }
+.dt-lm-sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.dt-lm-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.dt-lm-error { margin-top: 0.75rem; padding: 0.6rem 0.85rem; border: 1px solid var(--no); background: rgba(251, 113, 133, 0.1); border-radius: 8px; font-size: 0.88rem; font-weight: 600; text-align: left; }
+.dt-lm-fine { margin-top: 0.9rem; font-size: 0.78rem; color: var(--paper-mute); }
+.dt-lm-fine a { color: var(--paper-dim); text-underline-offset: 0.2em; }
+.dt-lm-skip { margin-top: 0.35rem; min-height: 2.75rem; padding: 0.5rem 1rem; background: none; border: none; color: var(--paper-mute); font: inherit; font-size: 0.88rem; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.dt-lm-skip:hover { color: var(--paper); }
+.dt-lm-check { display: inline-flex; align-items: center; justify-content: center; width: 3.25rem; height: 3.25rem; border-radius: 999px; background: rgba(52, 211, 153, 0.15); color: var(--go); }
+.dt-lm-check svg { width: 1.6rem; height: 1.6rem; }
+.dt-lm-preview { margin-top: 1rem; padding: 0.6rem 0.85rem; border: 1px dashed var(--chart-2); border-radius: 8px; color: var(--chart-2); font-size: 0.82rem; }
+@media (max-width: 640px) {
+  .dt-lm { align-items: flex-end; padding: 0; }
+  .dt-lm-card { max-width: none; max-height: 92dvh; border-radius: 18px 18px 0 0; border-bottom: none; padding: 2.25rem 1.25rem calc(1rem + env(safe-area-inset-bottom)); transform: translateY(100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dt-lm-backdrop, .dt-lm-card { transition: none; }
+}
