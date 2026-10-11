@@ -10,7 +10,7 @@
 <meta name="description" content="Manual, top-down Amazon PPC campaign build-out and ongoing management, with dynamic bidding and placement multipliers turned off. The service the guarantee attaches to.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/dark-theme.css?v=46">
+<link rel="stylesheet" href="css/dark-theme.css?v=47">
 </head>
 <body class="dt">
 
@@ -274,8 +274,8 @@
               <span class="dt-ichart-stat-value">4.02x <span class="dt-sm dt-muted">average</span></span>
             </div>
             <div class="dt-ichart-stat">
-              <span class="dt-ichart-stat-label"><span class="dt-ichart-stat-swatch" style="background:var(--chart-3)"></span>Spend</span>
-              <span class="dt-ichart-stat-value">$238,906 <span class="dt-sm dt-muted">total</span></span>
+              <span class="dt-ichart-stat-label">Spend</span>
+              <span class="dt-ichart-stat-value dt-ichart-stat-value--secondary">$238,906 <span class="dt-sm dt-muted">total</span></span>
             </div>
             <div class="dt-ichart-stat">
               <span class="dt-ichart-stat-label">Impressions</span>
@@ -548,7 +548,7 @@
   var data = JSON.parse(dataEl.textContent);
   window.BBChart.renderLineChart(mount, {
     data: data,
-    ariaLabel: 'Monthly Sales, Spend and RoAS, Jan 2016 to Jun 2023',
+    ariaLabel: 'Monthly Sales and RoAS, Jan 2016 to Jun 2023',
     xTickEvery: 13,
     xLabel: function (iso) {
       var d = new Date(iso + 'T00:00:00');
@@ -557,11 +557,6 @@
     series: [
       {
         key: 'sales', label: 'Sales', axis: 'left', color: 'var(--accent)',
-        formatAxis: function (v) { return v > 0 ? '$' + Math.round(v / 1000) + 'K' : '$0'; },
-        formatTooltip: function (v) { return '$' + Math.round(v).toLocaleString('en-US'); }
-      },
-      {
-        key: 'spend', label: 'Spend', axis: 'left', color: 'var(--chart-3)',
         formatAxis: function (v) { return v > 0 ? '$' + Math.round(v / 1000) + 'K' : '$0'; },
         formatTooltip: function (v) { return '$' + Math.round(v).toLocaleString('en-US'); }
       },
