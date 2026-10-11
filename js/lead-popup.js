@@ -1,6 +1,8 @@
 /* Lead-magnet popup: free "what a PPC audit looks like" video for an email.
-   Stays OFF until ghlFormUrl is filled in below, or ?popup=preview is added
-   to a page's URL (shows quickly, sends nothing, ignores dismissal memory). */
+   Stays OFF until ghlFormUrl is filled in below. For review, add to a page's URL:
+     ?popup=preview  shows after ~1.5s
+     ?popup=demo     uses the real triggers (scroll past half the page, or 30s)
+   Both send nothing and ignore the dismissal memory. */
 (function () {
   'use strict';
 
@@ -19,7 +21,9 @@
 
   var params = new URLSearchParams(window.location.search);
   var preview = params.get('popup') === 'preview';
-  if (!CONFIG.ghlFormUrl && !preview) { return; }
+  var demo = params.get('popup') === 'demo';
+  var review = preview || demo;
+  if (!CONFIG.ghlFormUrl && !review) { return; }
 
   var KEY_DISMISSED = 'bb_lm_dismissed';
   var KEY_SUBSCRIBED = 'bb_lm_subscribed';
@@ -32,7 +36,7 @@
     return !isNaN(t) && Date.now() - t < days * 86400000;
   }
 
-  if (!preview) {
+  if (!review) {
     if (within(KEY_DISMISSED, CONFIG.dismissDays) || within(KEY_SUBSCRIBED, CONFIG.subscribedDays)) { return; }
     if (read(window.sessionStorage, KEY_SESSION)) { return; }
   }
@@ -111,7 +115,7 @@
       var input = root.querySelector('#dt-lm-email');
       (input || card).focus({ preventScroll: true });
     });
-    if (!preview) { write(window.sessionStorage, KEY_SESSION, '1'); }
+    if (!review) { write(window.sessionStorage, KEY_SESSION, '1'); }
   }
 
   function close(remember) {
@@ -119,7 +123,7 @@
     root.classList.remove('is-in');
     document.documentElement.classList.remove('dt-lm-open');
     setTimeout(function () { root.hidden = true; }, 200);
-    if (remember && !preview && !within(KEY_SUBSCRIBED, CONFIG.subscribedDays)) {
+    if (remember && !review && !within(KEY_SUBSCRIBED, CONFIG.subscribedDays)) {
       write(window.localStorage, KEY_DISMISSED, String(Date.now()));
     }
     if (lastFocus && lastFocus.focus) { lastFocus.focus({ preventScroll: true }); }
@@ -140,9 +144,9 @@
       watch.href = CONFIG.videoUrl;
       watch.hidden = false;
     }
-    if (!CONFIG.ghlFormUrl) { doneEl.querySelector('[data-lm-preview]').hidden = false; }
+    if (!CONFIG.ghlFormUrl || demo) { doneEl.querySelector('[data-lm-preview]').hidden = false; }
     doneEl.querySelector('[data-lm-done-title]').focus();
-    if (!preview) { write(window.localStorage, KEY_SUBSCRIBED, String(Date.now())); }
+    if (!review) { write(window.localStorage, KEY_SUBSCRIBED, String(Date.now())); }
   }
 
   function onSubmit(e) {
@@ -158,7 +162,7 @@
     showError('');
     var btn = form.querySelector('button[type="submit"]');
 
-    if (!CONFIG.ghlFormUrl) { done(); return; }            // preview: send nothing
+    if (!CONFIG.ghlFormUrl || demo) { done(); return; }    // review modes: send nothing
 
     btn.disabled = true;
     btn.textContent = 'Sending…';
