@@ -133,6 +133,13 @@
   transition: opacity 0.18s var(--ease), transform 0.18s var(--ease), visibility 0.18s linear;
 }
 .dt-nav .has-submenu:hover .submenu, .dt-nav .has-submenu:focus-within .submenu, .dt-nav .has-submenu.is-open .submenu { opacity: 1; visibility: visible; transform: translateY(0); }
+@media (min-width: 901px) {
+  .dt-nav .has-submenu.is-dismissed .submenu,
+  .dt-nav .has-submenu.is-dismissed:hover .submenu,
+  .dt-nav .has-submenu.is-dismissed:focus-within .submenu { opacity: 0; visibility: hidden; transform: translateY(4px); }
+  .dt-nav .has-submenu.is-dismissed:hover .submenu-caret,
+  .dt-nav .has-submenu.is-dismissed:focus-within .submenu-caret { transform: none; }
+}
 .dt-nav .submenu li { margin: 0; }
 .dt-nav .submenu a { display: block; padding: 0.55rem 0.75rem; border-radius: 6px; font-size: 0.85rem; white-space: nowrap; }
 .dt-nav .submenu a:hover { background: rgba(255,255,255,0.06); color: var(--paper); }
@@ -342,14 +349,14 @@
   .dt-nav > li:first-child > a { border-top: none; }
   .dt-nav .has-submenu { display: flex; flex-wrap: wrap; align-items: center; }
   .dt-nav .has-submenu > a { flex: 1; border-top: none; }
-  .dt-nav .submenu-toggle { margin-left: 0; }
+  .dt-nav .submenu-toggle { margin-left: 0; width: 2.75rem; height: 2.75rem; }
   .dt-nav .submenu {
     position: static; opacity: 1; visibility: visible; transform: none;
     display: none; width: 100%; flex-basis: 100%;
     margin: 0; padding: 0 0 0.5rem; border: none; box-shadow: none; background: none;
   }
   .dt-nav .has-submenu.is-open .submenu { display: block; }
-  .dt-nav .submenu a { padding: 0.6rem 0.75rem; border-top: none; font-size: 0.85rem; color: var(--paper-dim); }
+  .dt-nav .submenu a { padding: 0.8rem 0.75rem; border-top: none; font-size: 0.9rem; color: var(--paper-dim); }
   .dt-cta { margin-top: 0.75rem; width: 100%; }
   .dt-hero { padding-top: calc(var(--header-h) + 5.5rem); }
 }
@@ -425,6 +432,8 @@
 
 /* --- Section heading accent ------------------------------------------------ */
 .dt-h2--accent { color: var(--accent); scroll-margin-top: 6rem; }
+.dt-h2[id] { scroll-margin-top: 6rem; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 /* --- Bio layout (about page) ---------------------------------------------- */
 .dt-bio { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 4rem; align-items: center; }
